@@ -133,4 +133,12 @@ module SemanticsMatchers
       evaluate(lat).member?(evaluate(atom))
     end
   end
+
+  matcher :evaluate_to_an_atom do |actual|
+    include EvaluatingMatcher
+
+    match do |actual|
+      evaluate(actual).atom?
+    end
+  end
 end
